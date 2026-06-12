@@ -7,7 +7,7 @@ import ZoneDivider from '@/components/ui/ZoneDivider';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import { getThemeZone } from '@/sanity/schema/product';
 
-export const revalidate = 3600; // ISR - revalidate every hour
+export const revalidate = 0; // Disable cache so products show up/disappear instantly
 
 async function getAllProducts() {
   try {

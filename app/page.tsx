@@ -9,7 +9,7 @@ import ModernSection from '@/components/zones/ModernSection';
 import ArtisticSection from '@/components/zones/ArtisticSection';
 import { SpiritualToModernDivider, ModernToArtisticDivider } from '@/components/ui/TransitionDivider';
 
-export const revalidate = 3600; // Revalidate static content every hour (ISR)
+export const revalidate = 0; // Disable cache so products show up/disappear instantly
 
 async function getFeaturedProducts() {
   try {

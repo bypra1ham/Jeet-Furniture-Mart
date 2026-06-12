@@ -12,7 +12,7 @@ import ProductGallery from './ProductGallery';
 import ViewTracker from './ViewTracker';
 import { ChevronLeft } from 'lucide-react';
 
-export const revalidate = 3600; // ISR - revalidate static pages every hour
+export const revalidate = 0; // Disable cache so products show up/disappear instantly
 
 // Fetch all possible products for build-time static generation
 export async function generateStaticParams() {
