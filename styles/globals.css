@@ -1,0 +1,255 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: var(--bg-color);
+  --color-brand-text: var(--text-color);
+  --color-brand-accent: var(--accent-color);
+  --color-brand-secondary: var(--accent-secondary);
+  --color-brand-border: var(--border-color);
+  --color-brand-card: var(--card-bg);
+  
+  --color-gold-accent: #C9A84C;
+  --color-base-bg: #FAF8F5;
+  --color-charcoal-dark: #2E1912;
+  
+  --font-display: var(--font-heading), serif;
+  --font-sans: var(--font-body), sans-serif;
+}
+
+:root {
+  --bg-color: #FAF8F5;
+  --text-color: #2E1912;
+  --accent-color: #C9A84C;
+  --accent-secondary: #E0DDD8;
+  --border-color: #E0DDD8;
+  --card-bg: #FAF8F5;
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-inter);
+}
+
+/* Zone 1 — Jhulas & Mandirs (Spiritual & Classical) */
+.theme-spiritual {
+  --bg-color: #FFFFF0; /* Ivory */
+  --text-color: #6B1C1C; /* Deep Maroon */
+  --accent-color: #E8871A; /* Saffron */
+  --accent-secondary: #C9A84C; /* Gold */
+  --border-color: #C9A84C; /* Gold borders */
+  --card-bg: #FFFFF0;
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-inter);
+}
+
+/* Zone 2 — Modular Furniture (Modern & Minimal) */
+.theme-modern {
+  --bg-color: #FFFFFF; /* Pure White */
+  --text-color: #0A0A0A; /* Matte Black */
+  --accent-color: #1C1C1E; /* Charcoal */
+  --accent-secondary: #E0DDD8; /* Concrete Grey */
+  --border-color: #E0DDD8;
+  --card-bg: #FFFFFF;
+  --font-heading: var(--font-inter);
+  --font-body: var(--font-inter);
+}
+
+/* Zone 3 — CNC Work (Artistic & Craft) */
+.theme-artistic {
+  --bg-color: #F5EFE6; /* Cream */
+  --text-color: #C4622D; /* Terracotta */
+  --accent-color: #6B7C4E; /* Olive */
+  --accent-secondary: #D4A96A; /* Raw Wood */
+  --border-color: #D4A96A;
+  --card-bg: #F5EFE6;
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-inter);
+}
+
+/* Sandstone grain texture overlay */
+.sandstone-texture {
+  position: relative;
+}
+.sandstone-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: radial-gradient(#6b1c1c 1px, transparent 0), radial-gradient(#e8871a 1px, transparent 0);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+  z-index: 1;
+}
+
+body {
+  background-color: #FAF8F5;
+  color: #2E1912;
+}
+
+/* Custom Scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A84C;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B3953D;
+}
+
+/* --- Visual Upgrades & Keyframes --- */
+
+.font-tiro {
+  font-family: var(--font-tiro-sanskrit), serif;
+}
+
+/* Custom Cursor Hide (Desktop Only) */
+@media (pointer: fine) {
+  body, a, button, [role="button"], select, input, textarea {
+    cursor: none !important;
+  }
+}
+
+/* Animations */
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(40px, 40px, 0);
+  }
+}
+
+.animate-drift {
+  animation: drift 60s linear infinite;
+}
+
+@keyframes revealChar {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-char {
+  display: inline-block;
+  opacity: 0;
+  animation: revealChar 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulseArch {
+  0% {
+    stroke-dashoffset: 200;
+    opacity: 0.15;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 0.35;
+  }
+  100% {
+    stroke-dashoffset: -200;
+    opacity: 0.15;
+  }
+}
+
+.animate-pulse-arch {
+  stroke-dasharray: 100;
+  animation: pulseArch 4s linear infinite;
+}
+
+@keyframes spinClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.circle-outermost {
+  transform-origin: 50px 50px;
+  animation: spinClockwise 8s linear infinite;
+}
+.circle-mid-outer {
+  transform-origin: 50px 50px;
+  animation: spinClockwise 6s linear infinite;
+}
+.circle-mid-inner {
+  transform-origin: 50px 50px;
+  animation: spinClockwise 4.5s linear infinite;
+}
+.circle-innermost {
+  transform-origin: 50px 50px;
+  animation: spinClockwise 3s linear infinite;
+}
+
+@keyframes floatHeader {
+  0% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-float-header {
+  animation: floatHeader 6s ease-in-out infinite alternate;
+}
+
+@keyframes panGrid {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 40px;
+  }
+}
+
+.modern-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: panGrid 30s linear infinite;
+}
+
+.modern-bg-container {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 800ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modern-bg-container.reveal-wipe {
+  clip-path: inset(0 0% 0 0);
+}
+
+/* Tracing border for Modern Cards */
+.modern-card-border-trace {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 400ms ease-in-out;
+}
+
+.group:hover .modern-card-border-trace {
+  stroke-dashoffset: 0;
+}
+
+@keyframes swayBell {
+  0% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+
+.animate-sway-bell {
+  animation: swayBell 3s ease-in-out infinite alternate;
+}
