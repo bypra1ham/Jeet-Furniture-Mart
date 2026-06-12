@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "postinstall": "npm install --os=linux --cpu=x64 sharp"
+    "lint": "eslint"
   },
   "dependencies": {
     "@sanity/client": "^7.22.1",
