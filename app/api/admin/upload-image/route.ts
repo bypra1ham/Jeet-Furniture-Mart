@@ -62,6 +62,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ assetId: asset._id });
   } catch (error: any) {
     console.error('Image upload failed:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: error?.message || 'Unknown error occurred during image processing' }, { status: 500 });
   }
 }

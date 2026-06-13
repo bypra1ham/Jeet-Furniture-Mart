@@ -40,7 +40,14 @@ export default function NewProductPage() {
           method: 'POST',
           body: imgData,
         });
-        const uploadJson = await uploadRes.json();
+        
+        let uploadJson;
+        try {
+          uploadJson = await uploadRes.json();
+        } catch (e) {
+          throw new Error('Server returned an invalid response. This is likely an image processing issue.');
+        }
+
         if (!uploadRes.ok) throw new Error(uploadJson.error || 'Failed to upload image');
         assetId = uploadJson.assetId;
       }

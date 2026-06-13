@@ -19,7 +19,7 @@
     "react-dom": "19.2.4",
     "recharts": "^3.8.1",
     "sanity": "^5.30.0",
-    "sharp": "^0.35.1",
+    "sharp": "^0.32.6",
     "styled-components": "^6.4.2"
   },
   "devDependencies": {
@@ -31,8 +31,5 @@
     "eslint-config-next": "16.2.7",
     "tailwindcss": "^4",
     "typescript": "^5"
-  },
-  "optionalDependencies": {
-    "@img/sharp-linux-x64": "^0.35.1"
   }
 }
