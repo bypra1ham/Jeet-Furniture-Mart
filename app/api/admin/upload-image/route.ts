@@ -30,18 +30,41 @@ export async function POST(request: NextRequest) {
     const subtitleSize = Math.floor(24 * scale);
     const patternSize = Math.floor(400 * scale);
 
-    // Create a repeating diagonal SVG watermark pattern
-    const svgWatermark = `
-      <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="watermark" x="0" y="0" width="${patternSize}" height="${patternSize}" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
-            <text x="${patternSize/2}" y="${patternSize/2 - 10}" font-family="Arial, sans-serif" font-size="${titleSize}" font-weight="bold" fill="rgba(255, 255, 255, 0.15)" text-anchor="middle">JEET FURNITURE</text>
-            <text x="${patternSize/2}" y="${patternSize/2 + subtitleSize}" font-family="Arial, sans-serif" font-size="${subtitleSize}" fill="rgba(255, 255, 255, 0.15)" text-anchor="middle">www.jeetfurniture.com</text>
-          </pattern>
-        </defs>
-        <rect x="0" y="0" width="100%" height="100%" fill="url(#watermark)" />
+    // Calculate a grid of text to cover the image reliably without using <pattern>
+    // which has spotty support in some librsvg builds.
+    const diag = Math.sqrt(width * width + height * height);
+    const cols = Math.ceil(diag / patternSize) + 1;
+    const rows = Math.ceil(diag / patternSize) + 1;
+    
+    let textNodes = '';
+    // Generate a grid of text nodes that covers an area larger than the image
+    // so when rotated, it covers all corners.
+    const startX = -diag / 2;
+    const startY = -diag / 2;
+    
+    for (let i = 0; i < cols; i++) {
+      for (let j = 0; j < rows; j++) {
+        const cx = startX + (i * patternSize);
+        const cy = startY + (j * patternSize);
+        
+        // Dark drop shadow for visibility on light backgrounds
+        textNodes += `<text x="${cx}" y="${cy}" font-family="Arial, sans-serif" font-size="${titleSize}" font-weight="bold" fill="#000000" fill-opacity="0.3" text-anchor="middle">JEET FURNITURE</text>`;
+        textNodes += `<text x="${cx}" y="${cy + subtitleSize}" font-family="Arial, sans-serif" font-size="${subtitleSize}" fill="#000000" fill-opacity="0.3" text-anchor="middle">www.jeetfurniture.com</text>`;
+        
+        // White main text
+        textNodes += `<text x="${cx - 2}" y="${cy - 2}" font-family="Arial, sans-serif" font-size="${titleSize}" font-weight="bold" fill="#ffffff" fill-opacity="0.35" text-anchor="middle">JEET FURNITURE</text>`;
+        textNodes += `<text x="${cx - 2}" y="${cy - 2 + subtitleSize}" font-family="Arial, sans-serif" font-size="${subtitleSize}" fill="#ffffff" fill-opacity="0.35" text-anchor="middle">www.jeetfurniture.com</text>`;
+      }
+    }
+
+    // Create the SVG with a centered rotation group
+    const svgWatermark = \`
+      <svg width="\${width}" height="\${height}" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(\${width / 2}, \${height / 2}) rotate(-35)">
+          \${textNodes}
+        </g>
       </svg>
-    `;
+    \`;
 
     // Apply the watermark
     const watermarkedBuffer = await image
