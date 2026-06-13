@@ -63,15 +63,15 @@ export async function POST(request: NextRequest) {
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  margin: `${50 * scale}px ${100 * scale}px`,
+                  margin: `${200 * scale}px ${250 * scale}px`, // Increased spacing to reduce quantity
                 }}
               >
                 <span
                   style={{
                     fontSize: titleSize,
                     fontWeight: 900,
-                    color: 'rgba(255, 255, 255, 0.45)',
-                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                    color: 'rgba(255, 255, 255, 0.15)', // Reduced opacity
+                    textShadow: '1px 1px 2px rgba(0, 0, 0, 0.15)', // Softer shadow
                   }}
                 >
                   JEET FURNITURE
@@ -79,8 +79,8 @@ export async function POST(request: NextRequest) {
                 <span
                   style={{
                     fontSize: subtitleSize,
-                    color: 'rgba(255, 255, 255, 0.45)',
-                    textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)',
+                    color: 'rgba(255, 255, 255, 0.15)', // Reduced opacity
+                    textShadow: '1px 1px 2px rgba(0, 0, 0, 0.15)', // Softer shadow
                     marginTop: 5,
                   }}
                 >
