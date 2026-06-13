@@ -11,6 +11,7 @@ import { MOCK_PRODUCTS } from '@/sanity/lib/mockData';
 import ProductGallery from './ProductGallery';
 import ViewTracker from './ViewTracker';
 import { ChevronLeft } from 'lucide-react';
+import ProductCard from '@/components/ui/ProductCard';
 
 export const revalidate = 0; // Disable cache so products show up/disappear instantly
 
@@ -26,6 +27,31 @@ export async function generateStaticParams() {
     console.error('Error generating static params:', error);
     return [];
   }
+}
+
+async function getSimilarProducts(category: string, currentSlug: string) {
+  const zone = getThemeZone(category);
+  const zoneCategories = 
+    zone === 'spiritual' ? ['wooden-swing', 'wooden-stand-jhula', 'wooden-mandir', 'wooden-deco-mandir', 'korean-mandir'] :
+    zone === 'artistic' ? ['cnc-2d', 'cnc-3d'] :
+    ['sofa', 'chair', 'bed', 'tv-unit', 'wardrobe', 'modular-others'];
+
+  try {
+    const products = await client.fetch(
+      `*[_type == "product" && category in $zoneCategories && slug.current != $slug][0...3]`,
+      { zoneCategories, slug: currentSlug }
+    );
+    if (products && products.length > 0) {
+      return products;
+    }
+  } catch (error) {
+    console.error('Error fetching similar products from Sanity:', error);
+  }
+
+  // Fallback to mock data
+  return MOCK_PRODUCTS.filter(
+    (p) => zoneCategories.includes(p.category) && p.slug.current !== currentSlug
+  ).slice(0, 3);
 }
 
 // Simple non-external block content parser to minimize bundle size
@@ -70,6 +96,8 @@ export default async function ProductDetailPage({
   if (!product) {
     notFound();
   }
+
+  const similarProducts = await getSimilarProducts(category, slug);
 
   const zone = getThemeZone(product.category);
 
@@ -208,6 +236,25 @@ export default async function ProductDetailPage({
 
           </div>
         </div>
+
+        {/* Similar Products Suggestions */}
+        {similarProducts.length > 0 && (
+          <div className="mt-24 border-t border-[#E0DDD8]/50 pt-16">
+            <div className="mb-10 text-center sm:text-left">
+              <span className={styles.label}>Handpicked Selection</span>
+              <h2 className={`mt-2 ${styles.title}`}>Similar Masterpieces</h2>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {similarProducts.map((simProduct: any) => (
+                <ProductCard
+                  key={simProduct._id}
+                  product={{ ...simProduct, themeZone: zone }}
+                />
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Divider */}
         <ZoneDivider zone={zone} className="mt-20" />
