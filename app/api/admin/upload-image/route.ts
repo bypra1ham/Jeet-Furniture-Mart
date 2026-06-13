@@ -58,13 +58,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Create the SVG with a centered rotation group
-    const svgWatermark = \`
-      <svg width="\${width}" height="\${height}" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(\${width / 2}, \${height / 2}) rotate(-35)">
-          \${textNodes}
+    const svgWatermark = `
+      <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(${width / 2}, ${height / 2}) rotate(-35)">
+          ${textNodes}
         </g>
       </svg>
-    \`;
+    `;
 
     // Apply the watermark
     const watermarkedBuffer = await image
