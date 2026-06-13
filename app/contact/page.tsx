@@ -54,18 +54,18 @@ export default function ContactPage() {
                 </h2>
               </div>
               <ul className="text-xs text-stone-500 font-sans space-y-2">
-                <li className="flex justify-between">
-                  <span>Monday - Saturday:</span>
-                  <span className="font-semibold text-[#1C1C1E]">11:00 AM - 06:00 PM</span>
+                <li className="flex justify-between font-medium">
+                  <span>Monday - Sunday:</span>
+                  <span className="font-semibold text-[#1C1C1E]">08:00 AM - 09:00 PM</span>
                 </li>
-                <li className="flex justify-between text-red-700 font-medium">
-                  <span>Sunday:</span>
-                  <span className="uppercase tracking-widest text-[10px]">Closed (Holiday)</span>
+                <li className="flex justify-between text-[#C9A84C] font-bold mt-2 pt-2 border-t border-stone-100">
+                  <span>Phone &amp; WhatsApp:</span>
+                  <span className="uppercase tracking-wider text-[9px]">Available 24/7</span>
                 </li>
               </ul>
             </div>
             <div className="mt-8 pt-6 border-t border-[#E0DDD8] text-xs text-stone-400">
-              For custom design consultations, please schedule an appointment.
+              Our showroom is open every day. Direct calls and WhatsApp support are active 24/7.
             </div>
           </div>
         </div>
