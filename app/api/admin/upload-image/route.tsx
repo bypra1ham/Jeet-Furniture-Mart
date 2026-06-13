@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  margin: `${200 * scale}px ${250 * scale}px`, // Increased spacing to reduce quantity
+                  margin: `${50 * scale}px ${100 * scale}px`, // Restored dense quantity
                 }}
               >
                 <span
