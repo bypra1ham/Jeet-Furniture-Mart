@@ -23,20 +23,23 @@ export default function LoadingScreen() {
 
   return (
     <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#FAF8F5] transition-opacity duration-700 ease-out select-none">
-      <div className="relative flex flex-col items-center space-y-6">
+      <div className="flex flex-col items-center space-y-6">
         
-        {/* Animated outer gold spinning circle */}
-        <div className="absolute inset-0 w-28 h-28 rounded-full border border-gold-accent/20 border-t-gold-accent animate-spin" style={{ margin: '-16px' }} />
-        
-        {/* Pulsing circular logo container */}
-        <div className="relative w-20 h-20 rounded-full overflow-hidden border border-gold-accent/50 shadow-xl animate-pulse">
-          <Image
-            src="/assets/logo.jpeg"
-            alt="Jeet Furniture Mart Logo"
-            fill
-            className="object-cover"
-            priority
-          />
+        {/* Logo and Spinner Wrapper */}
+        <div className="relative w-28 h-28 flex items-center justify-center">
+          {/* Animated outer gold spinning circle */}
+          <div className="absolute inset-0 rounded-full border border-gold-accent/20 border-t-gold-accent animate-spin" />
+          
+          {/* Pulsing circular logo container */}
+          <div className="relative w-20 h-20 rounded-full overflow-hidden border border-gold-accent/50 shadow-xl animate-pulse">
+            <Image
+              src="/assets/logo.jpeg"
+              alt="Jeet Furniture Mart Logo"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
 
         {/* Brand Name Text Fades In */}

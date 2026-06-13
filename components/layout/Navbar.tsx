@@ -11,7 +11,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const navLinks = [
-    { name: 'Home', href: '/' },
+    { name: 'Home', href: '/#hero' },
     { name: 'Categories', href: '/categories' },
     { name: 'Testimonials', href: '/testimonials' },
     { name: 'About Us', href: '/about' },
@@ -19,7 +19,7 @@ export default function Navbar() {
   ];
 
   const isActive = (href: string) => {
-    if (href === '/') {
+    if (href === '/' || href === '/#hero') {
       return pathname === '/';
     }
     return pathname.startsWith(href);
@@ -34,7 +34,7 @@ export default function Navbar() {
         <div className="flex justify-between h-20">
           {/* Logo and Brand Name */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-3 group">
+            <Link href="/#hero" className="flex items-center space-x-3 group">
               <div className="relative h-12 w-12 rounded-full overflow-hidden border border-gold-accent/40 shadow-sm transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src="/assets/logo.jpeg"

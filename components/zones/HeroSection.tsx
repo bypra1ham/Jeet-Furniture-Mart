@@ -45,7 +45,7 @@ export default function HeroSection() {
   const headlineText = "Handcrafted Heritage.";
 
   return (
-    <section className="relative bg-[#FAF8F5] border-b border-gold-accent/20 overflow-hidden z-10">
+    <section id="hero" className="relative bg-[#FAF8F5] border-b border-gold-accent/20 overflow-hidden z-10">
       <div className="flex flex-col lg:flex-row min-h-[600px]">
         
         {/* Left Panel: 55% Content */}

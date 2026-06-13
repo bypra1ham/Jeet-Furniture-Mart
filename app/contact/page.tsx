@@ -1,10 +1,10 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Clock } from 'lucide-react';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
 export const metadata = {
   title: 'Contact Us | Jeet Furniture Mart',
-  description: 'Get in touch with Jeet Furniture Mart. Find showroom coordinates in Kirti Nagar, New Delhi and contact details.',
+  description: 'Get in touch with Jeet Furniture Mart. Find showroom coordinates in Bardoli, Surat, Gujarat and contact details.',
 };
 
 export default function ContactPage() {
@@ -34,13 +34,13 @@ export default function ContactPage() {
                 </h2>
               </div>
               <p className="text-xs text-stone-500 font-sans leading-relaxed">
-                12, Furniture Block,<br />
-                Kirti Nagar Industrial Area,<br />
-                New Delhi, India - 110015
+                At. NADIDA, & PO. Barasadi,<br />
+                Ta. Bardoli, Dist. Surat,<br />
+                Gujarat India – 394901
               </p>
             </div>
             <div className="mt-8 pt-6 border-t border-[#E0DDD8] text-xs text-stone-400">
-              Metro Station: Kirti Nagar (Blue Line) - 5 mins away.
+              Conveniently located in Bardoli, Surat, Gujarat.
             </div>
           </div>
 
@@ -55,17 +55,17 @@ export default function ContactPage() {
               </div>
               <ul className="text-xs text-stone-500 font-sans space-y-2">
                 <li className="flex justify-between">
-                  <span>Thursday - Tuesday:</span>
-                  <span className="font-semibold text-[#1C1C1E]">10:00 AM - 8:30 PM</span>
+                  <span>Monday - Saturday:</span>
+                  <span className="font-semibold text-[#1C1C1E]">11:00 AM - 06:00 PM</span>
                 </li>
                 <li className="flex justify-between text-red-700 font-medium">
-                  <span>Wednesday:</span>
-                  <span className="uppercase tracking-widest text-[10px]">Closed (Market Holiday)</span>
+                  <span>Sunday:</span>
+                  <span className="uppercase tracking-widest text-[10px]">Closed (Holiday)</span>
                 </li>
               </ul>
             </div>
             <div className="mt-8 pt-6 border-t border-[#E0DDD8] text-xs text-stone-400">
-              For holiday visits, please schedule an appointment.
+              For custom design consultations, please schedule an appointment.
             </div>
           </div>
         </div>
@@ -82,14 +82,10 @@ export default function ContactPage() {
             Click the button below to initiate a chat with us on WhatsApp. You can share your design inspirations, dimension requirements, or get price estimations.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-xs text-stone-300">
+          <div className="flex flex-col items-center justify-center gap-6 text-xs text-stone-300">
             <div className="flex items-center space-x-2">
               <Phone className="w-4 h-4 text-[#C9A84C]" />
-              <span>+91 98765 43210</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Mail className="w-4 h-4 text-[#C9A84C]" />
-              <span>contact@jeetfurniture.com</span>
+              <span>+91 78628 00530</span>
             </div>
           </div>
 

@@ -23,7 +23,7 @@ export default function ProductGallery({ images, name, themeZone }: ProductGalle
   const getFrameStyle = () => {
     switch (themeZone) {
       case 'spiritual':
-        return 'rounded-[40%] overflow-hidden border-2 border-gold-accent bg-[#FFFFF0] p-2';
+        return 'rounded-3xl overflow-hidden border-2 border-gold-accent bg-[#FFFFF0] p-2';
       case 'artistic':
         return 'rounded-lg overflow-hidden border border-[#D4A96A]/20 bg-[#F5EFE6]';
       case 'modern':

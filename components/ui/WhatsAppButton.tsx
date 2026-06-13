@@ -44,7 +44,7 @@ export default function WhatsAppButton({
   };
 
   // Build the message
-  const waNumber = process.env.NEXT_PUBLIC_BUSINESS_WA_NUMBER || '919876543210';
+  const waNumber = process.env.NEXT_PUBLIC_BUSINESS_WA_NUMBER || '917862800530';
   
   let text = 'Hi, I have a general inquiry about your furniture.';
   if (isProductInquiry) {

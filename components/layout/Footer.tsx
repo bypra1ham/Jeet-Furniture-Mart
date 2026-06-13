@@ -39,7 +39,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-stone-400 text-xs leading-relaxed max-w-sm">
-              Handcrafting premium wooden swing systems, custom designer temple shrines (Mandirs), contemporary modular solutions, and detailed architectural CNC carvings since 1995.
+              Handcrafting premium wooden swing systems, custom designer temple shrines (Mandirs), contemporary modular solutions, and detailed architectural CNC carvings since 1989.
             </p>
           </div>
 
@@ -89,8 +89,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/studio" className="hover:text-white transition-colors" target="_blank">
-                  Sanity Studio
+                <Link href="/categories" className="hover:text-white transition-colors">
+                  Categories
                 </Link>
               </li>
             </ul>
@@ -103,31 +103,18 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-xs text-stone-400">
               <li className="leading-relaxed">
-                12, Furniture Block, Kirti Nagar Industrial Area, New Delhi, India - 110015
+                At. NADIDA, & PO. Barasadi, Ta. Bardoli, Dist. Surat Gujarat India – 394901
               </li>
               <li>
-                <span className="font-bold text-white">Inquiries:</span> +91 98765 43210
-              </li>
-              <li>
-                <span className="font-bold text-white">Email:</span> contact@jeetfurniture.com
+                <span className="font-bold text-white">Inquiries:</span> +91 78628 00530
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-stone-800 flex flex-col sm:flex-row justify-between items-center text-[10px] text-stone-500 space-y-4 sm:space-y-0">
-          <div>
-            &copy; {new Date().getFullYear()} Jeet Furniture Mart. All rights reserved.
-          </div>
-          <div className="flex space-x-6">
-            <Link href="/admin/analytics" className="hover:text-white transition-colors">
-              Admin Analytics
-            </Link>
-            <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              WhatsApp Support
-            </a>
-          </div>
+        <div className="mt-16 pt-8 border-t border-stone-800 text-center text-[10px] text-stone-500">
+          &copy; {new Date().getFullYear()} Jeet Furniture Mart. All rights reserved.
         </div>
       </div>
     </footer>

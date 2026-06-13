@@ -8,6 +8,7 @@ import ScrollProgress from "@/components/ui/ScrollProgress";
 import CustomCursor from "@/components/ui/CustomCursor";
 import BackgroundDriftOverlay from "@/components/ui/BackgroundDriftOverlay";
 import GlobalViewTracker from "@/components/GlobalViewTracker";
+import FloatingWhatsAppWidget from "@/components/ui/FloatingWhatsAppWidget";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -48,6 +49,7 @@ export default function RootLayout({
         <CustomCursor />
         <BackgroundDriftOverlay />
         <LoadingScreen />
+        <FloatingWhatsAppWidget />
         <Navbar />
         <main className="flex-grow relative z-10">{children}</main>
         <Footer />
