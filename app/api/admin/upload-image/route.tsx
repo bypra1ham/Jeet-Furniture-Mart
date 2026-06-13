@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  margin: \`\${50 * scale}px \${100 * scale}px\`,
+                  margin: `${50 * scale}px ${100 * scale}px`,
                 }}
               >
                 <span
